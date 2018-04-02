@@ -8,9 +8,9 @@ ggplot(surveys,
                              aes(x=species_id, y=weight))+
   geom_boxplot() + xlab("Species") + ylab("weight")
 
-survey_2 <- select(surveys, plot_id, species_id)
-ggplot(survey_2, aes(x=species_id, y=plot_id))+
-  geom_point(alpha=.01)
-rodents <- select(surveys, taxa, hindfoot_length, weight) %>%
-  select(surveys, taxa=Rodent)
+tAxa <- unique(taxa)
 
+num_taxa <- surveys %>% count(taxa) 
+
+ggplot(num_taxa, aes(x=taxa, y=n)) +
+geom_col() + xlab("taxa") + ylab("number of individuals")
