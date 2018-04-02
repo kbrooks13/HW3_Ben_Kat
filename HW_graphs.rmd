@@ -64,3 +64,15 @@ ggplot(rodent_count, aes(x=species_id,y=n)) +
 ```
 
 This graph shows the total number of individuals per species of Rodents.  We found that the most abundant rodent across survey sites was Dipodomys merriami, totaling 10596 individuals.
+
+## Correlation between weight and hindfoot length for Dipodomys merriami
+
+```{r echo=FALSE}
+DM_data <- select(surveys, species_id, weight, hindfoot_length) %>% 
+  filter(species_id == "DM") %>% filter(!is.na(weight)) %>% 
+  filter(!is.na(hindfoot_length))
+
+ggplot(DM_data, aes(x=weight, y=hindfoot_length)) + 
+  geom_jitter(alpha=.1)
+```
+This chart shows the relationship between weight and hindfoot length for the most abundant rodent surveyed, Dipodomys merriami. Regardless of weight, hindfoot length was mainly found between 30 and 40 cm. However, the majority of individuals were found with a weight between 30 and 50 grams.
