@@ -51,3 +51,16 @@ geom_col() + xlab("taxa") + ylab("number of individuals")
 ```
 
 This graph shows the number of individuals per taxa. There are 4 different taxa: birds, rabbits, reptiles, and rodents. Birds have 450 individuals. Rabbits have 75 individuals. Reptiles have 14 and rodents have 34247 individuals.
+
+## Abundance per rodent species
+
+```{r echo=FALSE}
+rodent_count <- surveys %>% select(taxa, species_id)
+
+rodent_count <- rodent_count %>% filter(taxa =="Rodent") %>% count(species_id)
+
+ggplot(rodent_count, aes(x=species_id,y=n)) +
+  geom_col()+xlab("number of individuals") + ylab("Species I.D.")
+```
+
+This graph shows the total number of individuals per species of Rodents.  We found that the most abundant rodent across survey sites was Dipodomys merriami, totaling 10596 individuals.

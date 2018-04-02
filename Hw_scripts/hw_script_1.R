@@ -34,3 +34,5 @@ ggplot(rodent_sex_weight, aes(x=sex, y=mean_weight)) +
 
 ggsave("figs/averageweightsex.png" ,mean_weight_bysex,width = 10, dpi=300)  
 
+
+
