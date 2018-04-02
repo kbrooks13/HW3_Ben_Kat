@@ -1,0 +1,20 @@
+---
+title: "Homework Graphs"
+author: "Ben Sacco and Kathryn Brooks"
+date: "April 1, 2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Average weight compared to sex for Rodents
+```{r, echo=FALSE}
+ggplot(rodent_sex_weight, aes(x=sex, y=mean_weight)) +
+  geom_col()+xlab("SEX") + ylab("AVERAGE WEIGHT")
+
+
+```
+
+This graph shows the average weights for all rodents in the data set.  We found that for all rodents the average weight was not dependant on sex.
