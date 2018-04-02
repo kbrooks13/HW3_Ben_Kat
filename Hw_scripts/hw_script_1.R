@@ -34,5 +34,10 @@ ggplot(rodent_sex_weight, aes(x=sex, y=mean_weight)) +
 
 ggsave("figs/averageweightsex.png" ,mean_weight_bysex,width = 10, dpi=300)  
 
+rodent_count <- surveys %>% select(taxa, species_id)
 
+rodent_count <- rodent_count %>% filter(taxa =="Rodent") %>% count(species_id)
+
+ggplot(rodent_count, aes(x=species_id,y=n)) +
+  geom_col()+xlab("number of individuals") + ylab("Species I.D.")
 
