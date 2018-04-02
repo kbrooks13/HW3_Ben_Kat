@@ -40,3 +40,14 @@ ggplot(rodent_sex_weight, aes(x=sex, y=mean_weight)) +
 ```
 
 This graph shows the average weights for all rodents in the data set.  We found that for all rodents the average weight was not dependant on sex.
+
+## Number of individuals per taxa
+
+```{r echo=FALSE}
+num_taxa <- surveys %>% count(taxa) 
+
+ggplot(num_taxa, aes(x=taxa, y=n)) +
+geom_col() + xlab("taxa") + ylab("number of individuals")
+```
+
+This graph shows the number of individuals per taxa. There are 4 different taxa: birds, rabbits, reptiles, and rodents. Birds have 450 individuals. Rabbits have 75 individuals. Reptiles have 14 and rodents have 34247 individuals.
