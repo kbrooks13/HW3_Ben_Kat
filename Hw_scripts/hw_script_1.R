@@ -41,3 +41,9 @@ rodent_count <- rodent_count %>% filter(taxa =="Rodent") %>% count(species_id)
 ggplot(rodent_count, aes(x=species_id,y=n)) +
   geom_col()+xlab("number of individuals") + ylab("Species I.D.")
 
+DM_data <- select(surveys, species_id, weight, hindfoot_length) %>% 
+  filter(species_id == "DM") %>% filter(!is.na(weight)) %>% 
+  filter(!is.na(hindfoot_length))
+
+ggplot(DM_data, aes(x=weight, y=hindfoot_length)) + 
+  geom_jitter(alpha=.1)
