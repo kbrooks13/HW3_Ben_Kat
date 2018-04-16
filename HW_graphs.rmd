@@ -2,7 +2,9 @@
 title: "Homework Graphs"
 author: "Ben Sacco and Kathryn Brooks"
 date: "April 1, 2018"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -63,7 +65,7 @@ rodent_count <- surveys %>% select(taxa, species_id)
 rodent_count <- rodent_count %>% filter(taxa =="Rodent") %>% count(species_id)
 
 ggplot(rodent_count, aes(x=species_id,y=n)) +
-  geom_col()+xlab("number of individuals") + ylab("Species I.D.")
+  geom_col()+xlab("Species I.D.") + ylab("number of individuals")
 ```
 
 This graph shows the total number of individuals per species of Rodents.  We found that the most abundant rodent across survey sites was Dipodomys merriami, totaling 10596 individuals.
